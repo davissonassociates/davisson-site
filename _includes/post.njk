@@ -1,0 +1,78 @@
+---
+layout: base.njk
+---
+<style>
+.post-hero{background:var(--blue);padding:8rem 8vw 4rem;margin-top:72px;position:relative;overflow:hidden}
+.post-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,199,38,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,199,38,.05) 1px,transparent 1px);background-size:60px 60px}
+.post-hero-inner{position:relative;z-index:1;max-width:800px}
+.post-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:rgba(255,255,255,.5);margin-bottom:1.5rem}
+.post-breadcrumb a{color:var(--gold);text-decoration:none}
+.post-breadcrumb a:hover{text-decoration:underline}
+.post-breadcrumb span{color:rgba(255,255,255,.3)}
+.post-cat{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.post-cat::before{content:'';width:20px;height:2px;background:var(--gold)}
+.post-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:1.5rem}
+.post-hero-meta{font-size:.82rem;color:rgba(255,255,255,.55);display:flex;gap:1.5rem;flex-wrap:wrap}
+.post-hero-meta span{display:flex;align-items:center;gap:.4rem}
+
+.post-content-wrap{max-width:800px;margin:0 auto;padding:4rem 8vw 6rem}
+.post-body-content{font-size:1rem;line-height:1.85;color:#2d3748}
+.post-body-content h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--blue);margin:2.5rem 0 1rem;line-height:1.2}
+.post-body-content h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:var(--blue);margin:2rem 0 .8rem}
+.post-body-content p{margin-bottom:1.4rem}
+.post-body-content ul,.post-body-content ol{margin:1rem 0 1.4rem 1.5rem}
+.post-body-content li{margin-bottom:.5rem;line-height:1.7}
+.post-body-content strong{color:var(--blue-dark);font-weight:600}
+.post-body-content blockquote{border-left:4px solid var(--gold);padding:1rem 1.5rem;margin:2rem 0;background:var(--off-white);border-radius:0 4px 4px 0;font-style:italic;color:var(--muted)}
+.post-body-content a{color:var(--blue);text-decoration:underline}
+
+.post-cta{background:var(--blue);padding:3rem;border-radius:4px;text-align:center;margin-top:3rem}
+.post-cta h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);margin-bottom:.8rem}
+.post-cta p{font-size:.9rem;color:rgba(255,255,255,.65);margin-bottom:1.5rem}
+.btn-gold{background:var(--gold);color:var(--blue-dark);padding:.85rem 2.2rem;font-size:.8rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;border-radius:2px;display:inline-block;transition:background .2s}
+.btn-gold:hover{background:#FFCE3D}
+
+.back-to-blog{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);text-decoration:none;margin-bottom:2.5rem;padding-bottom:.4rem;border-bottom:2px solid var(--gold)}
+.back-to-blog:hover{color:var(--gold-dark)}
+
+@media(max-width:600px){.post-hero{padding:6rem 5vw 3rem}.post-content-wrap{padding:3rem 5vw 4rem}}
+</style>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <div class="post-breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/blog/">Blog</a>
+      <span>/</span>
+      <span>{{ title }}</span>
+    </div>
+    <p class="post-cat">{{ category }}</p>
+    <h1>{{ title }}</h1>
+    <div class="post-hero-meta">
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        {{ author }}
+      </span>
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        {{ date | dateDisplay }}
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="post-content-wrap">
+  <a href="/blog/" class="back-to-blog">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back to Blog
+  </a>
+  <div class="post-body-content">
+    {{ content | safe }}
+  </div>
+  <div class="post-cta">
+    <h3>Need financial guidance for your business?</h3>
+    <p>Our team of experts is ready to help you take control of your finances and plan for the future.</p>
+    <a href="/#contact" class="btn-gold">Get in Touch</a>
+  </div>
+</div>

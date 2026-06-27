@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  repo: davissonassociates/davisson-site
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "DavisSon & Associates" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Business Advisory"
+          - "Tax Services"
+          - "Bookkeeping & Accounting"
+          - "Financial Reporting"
+          - "Payroll Services"
+          - "Accounting Software"
+          - "Compliance Services"
+          - "Financial Planning"
+          - "Technology"
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

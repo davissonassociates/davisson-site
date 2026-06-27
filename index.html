@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DavisSon & Associates Inc. — Comprehensive Financial Services, Barbados</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#00267F;--blue-dark:#001A5C;--blue-mid:#0033A8;--blue-light:#e8eef8;
+  --gold:#FFC726;--gold-dark:#D4A200;
+  --black:#0D0D0D;--off-white:#F7F8FC;--white:#FFFFFF;--muted:#556080;
+  --line:rgba(0,38,127,0.1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);overflow-x:hidden}
+
+/* ANIMATIONS */
+@keyframes tridentFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-18px) rotate(-3deg)}}
+@keyframes goldPulse{0%,100%{opacity:0.08}50%{opacity:0.18}}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(.4,0,.2,1),transform 0.7s cubic-bezier(.4,0,.2,1)}
+.reveal.from-left{transform:translateX(-32px)}
+.reveal.from-right{transform:translateX(32px)}
+.reveal.scale{transform:scale(0.94)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:0.1s}.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}.reveal-delay-4{transition-delay:0.4s}
+.reveal-delay-5{transition-delay:0.5s}.reveal-delay-6{transition-delay:0.6s}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.reveal.from-left,.reveal.from-right,.reveal.scale{opacity:1;transform:none;transition:none}
+  .trident{animation:none!important}
+}
+
+/* NAV */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;background:transparent;transition:background .4s,box-shadow .4s;
+}
+#nav.scrolled{background:rgba(255,255,255,0.97);box-shadow:0 1px 0 var(--line),0 4px 30px rgba(0,38,127,0.08)}
+.nav-logo{text-decoration:none;display:flex;flex-direction:column;gap:1px}
+.nav-logo-main{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--white);letter-spacing:.01em;transition:color .3s}
+.nav-logo-sub{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;transition:color .3s}
+#nav.scrolled .nav-logo-main{color:var(--blue)}
+#nav.scrolled .nav-logo-sub{color:var(--gold-dark)}
+.nav-menu{display:flex;align-items:center;gap:2.2rem}
+.nav-menu a{
+  font-size:.76rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,0.8);text-decoration:none;transition:color .2s;position:relative;
+}
+.nav-menu a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s;
+}
+.nav-menu a:hover{color:var(--white)}
+.nav-menu a:hover::after{transform:scaleX(1)}
+#nav.scrolled .nav-menu a{color:var(--muted)}
+#nav.scrolled .nav-menu a:hover{color:var(--blue)}
+.nav-cta{
+  background:var(--gold);color:var(--blue-dark);
+  padding:.55rem 1.4rem;font-size:.76rem;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;text-decoration:none;
+  border-radius:2px;transition:background .2s,transform .15s;
+}
+.nav-cta:hover{background:#FFCE3D;transform:translateY(-1px)}
+.ham{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px}
+.ham span{display:block;width:22px;height:2px;background:var(--white);transition:.3s}
+#nav.scrolled .ham span{background:var(--blue)}
+
+/* MOBILE NAV */
+.mobile-nav{
+  display:none;position:fixed;top:72px;left:0;right:0;z-index:999;
+  background:var(--white);flex-direction:column;gap:0;
+  border-bottom:3px solid var(--blue);box-shadow:0 8px 40px rgba(0,0,0,.12);
+}
+.mobile-nav.open{display:flex}
+.mobile-nav a{
+  padding:1rem 5vw;font-size:.9rem;font-weight:500;color:var(--blue);
+  text-decoration:none;border-bottom:1px solid var(--line);
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.mobile-nav a:last-child{border-bottom:none}
+
+/* BACK TO TOP */
+#back-top{
+  position:fixed;bottom:2rem;right:2rem;z-index:900;
+  width:46px;height:46px;border-radius:50%;
+  background:var(--blue);color:var(--white);border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;box-shadow:0 4px 20px rgba(0,38,127,.3);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .3s,visibility .3s,transform .2s,background .2s;
+  transform:translateY(12px);
+}
+#back-top.show{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+#back-top:hover{background:var(--gold);color:var(--blue-dark);transform:translateY(-3px)}
+
+/* HERO */
+#hero{
+  min-height:100vh;background:var(--blue);position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;align-items:center;
+  padding:0 8vw;padding-top:72px;
+}
+.hero-bg-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,199,38,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,199,38,.05) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.hero-bg-glow{
+  position:absolute;top:-200px;right:-200px;width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,199,38,.15) 0%,transparent 70%);
+  animation:goldPulse 6s ease-in-out infinite;
+}
+.hero-bg-glow2{
+  position:absolute;bottom:-300px;left:-100px;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,51,168,.4) 0%,transparent 70%);
+}
+.hero-left-col{position:relative;z-index:2;padding-right:4vw}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:rgba(255,199,38,.12);border:1px solid rgba(255,199,38,.3);
+  padding:.4rem 1rem;border-radius:2px;
+  font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:2rem;
+}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,5.2rem);font-weight:900;line-height:1.02;color:var(--white);margin-bottom:1.5rem}
+.hero-h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:1rem;line-height:1.75;color:rgba(255,255,255,.68);max-width:460px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-gold{
+  background:var(--gold);color:var(--blue-dark);padding:.85rem 2.2rem;font-size:.8rem;
+  font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;
+  border-radius:2px;transition:background .2s,transform .15s;display:inline-block;
+  box-shadow:0 4px 20px rgba(255,199,38,.35);
+}
+.btn-gold:hover{background:#FFCE3D;transform:translateY(-2px)}
+.btn-ghost{
+  background:transparent;color:var(--white);padding:.85rem 2.2rem;font-size:.8rem;
+  font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;
+  border:1px solid rgba(255,255,255,.3);border-radius:2px;transition:border-color .2s,background .2s;display:inline-block;
+}
+.btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.06)}
+.hero-right-col{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start}
+.trident{width:100%;max-width:380px;animation:tridentFloat 5s ease-in-out infinite}
+
+/* TICKER */
+.ticker{background:var(--gold);padding:.8rem 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-flex;gap:0;animation:marqueeScroll 34s linear infinite}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:.8rem;padding:0 2.5rem;
+  font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-dark);
+}
+.ticker-item::after{content:'◆';font-size:.45rem;color:var(--blue);opacity:.5}
+
+/* SHARED SECTION */
+section{padding:7rem 8vw}
+.eyebrow{
+  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-dark);font-weight:700;margin-bottom:.9rem;
+  display:flex;align-items:center;gap:.6rem;
+}
+.eyebrow::before{content:'';width:24px;height:2px;background:var(--gold)}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.2vw,3rem);font-weight:700;color:var(--blue);line-height:1.15;margin-bottom:1.2rem}
+.section-title em{font-style:italic;font-weight:400}
+.section-body{font-size:.95rem;line-height:1.8;color:var(--muted);max-width:560px}
+
+/* SVG ICON UTIL */
+.ico{display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* ABOUT */
+#about{background:var(--off-white);display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.about-stat-card{background:var(--blue);border-radius:4px;padding:2.8rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.about-stat-card::before{content:'';position:absolute;top:-80px;right:-80px;width:250px;height:250px;border-radius:50%;background:rgba(255,199,38,.07)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.3rem}
+.about-quote{background:var(--gold);padding:2rem 2.2rem;border-radius:2px;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;font-style:italic;color:var(--blue-dark);line-height:1.6}
+.about-quote cite{display:block;margin-top:.8rem;font-family:'DM Sans',sans-serif;font-style:normal;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.about-text .section-body{max-width:none}
+.about-pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.pill{background:var(--blue-light);color:var(--blue);padding:.4rem 1rem;border-radius:100px;font-size:.78rem;font-weight:500}
+
+/* SERVICES */
+#services{background:var(--white)}
+.services-head{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem;align-items:end}
+.services-intro .section-body{max-width:none}
+.services-intro a{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;font-size:.82rem;font-weight:600;color:var(--blue);text-decoration:none;letter-spacing:.04em;text-transform:uppercase}
+.services-intro a svg{transition:transform .2s}
+.services-intro a:hover svg{transform:translateX(4px)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.svc-card{background:var(--white);padding:2.2rem 2rem;transition:background .25s,transform .25s;cursor:default;position:relative;overflow:hidden}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.svc-card:hover{background:var(--blue);transform:translateY(-4px);z-index:2;box-shadow:0 12px 40px rgba(0,38,127,.2)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-card:hover .svc-title,.svc-card:hover .svc-body{color:var(--white)}
+.svc-card:hover .svc-num{color:rgba(255,255,255,.2)}
+.svc-card:hover .svc-icon-wrap{background:rgba(255,199,38,.18)}
+.svc-card:hover .svc-icon-wrap svg{stroke:var(--gold)}
+.svc-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:rgba(0,38,127,.06);line-height:1;margin-bottom:.8rem;transition:color .25s}
+.svc-icon-wrap{width:44px;height:44px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;transition:background .25s}
+.svc-icon-wrap svg{stroke:var(--blue);transition:stroke .25s}
+.svc-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--blue);margin-bottom:.7rem;transition:color .25s}
+.svc-body{font-size:.82rem;line-height:1.7;color:var(--muted);transition:color .25s}
+
+/* PAYROLL */
+#payroll{background:var(--blue)}
+.payroll-head{max-width:680px;margin-bottom:3.5rem}
+.payroll-head .section-title{color:var(--white)}
+.payroll-head .section-body{color:rgba(255,255,255,.65);max-width:none}
+.payroll-head .eyebrow{color:rgba(255,199,38,.85)}
+.payroll-head .eyebrow::before{background:var(--gold)}
+.payroll-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08)}
+.payroll-card{background:rgba(255,255,255,.04);padding:2rem 1.8rem;transition:background .25s;position:relative;overflow:hidden}
+.payroll-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.payroll-card:hover{background:rgba(255,255,255,.1)}
+.payroll-card:hover::before{transform:scaleX(1)}
+.payroll-card-icon{width:48px;height:48px;border-radius:50%;background:rgba(255,199,38,.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
+.payroll-card-icon svg{stroke:var(--gold)}
+.payroll-card:hover .payroll-card-icon{background:rgba(255,199,38,.2)}
+.payroll-card-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.6rem}
+.payroll-card-body{font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.5)}
+
+/* SOFTWARE */
+#software{background:var(--off-white)}
+.software-inner{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:start;margin-bottom:4rem}
+.software-left .section-body{max-width:none;margin-bottom:1.5rem}
+.software-highlight{background:var(--blue);border-radius:4px;padding:1.8rem;margin-top:1.5rem;display:flex;flex-direction:column;gap:.8rem}
+.sh-item{display:flex;align-items:flex-start;gap:.8rem}
+.sh-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.45rem}
+.sh-text{font-size:.86rem;color:rgba(255,255,255,.75);line-height:1.5}
+.sh-text strong{color:var(--gold);font-weight:600}
+.qb-badge{display:inline-flex;align-items:center;gap:.7rem;background:var(--white);border:1px solid var(--line);padding:.6rem 1rem .6rem .7rem;border-radius:4px;margin-bottom:1.5rem}
+.qb-badge-icon{width:32px;height:32px;border-radius:3px;background:#1B7F2A;display:flex;align-items:center;justify-content:center}
+.qb-badge-icon svg{stroke:var(--white)}
+.qb-badge-text{font-size:.76rem;font-weight:600;color:var(--muted)}
+.qb-badge-text strong{display:block;font-size:.82rem;color:var(--blue)}
+.sw-services-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.sw-card{background:var(--white);padding:1.6rem;transition:background .2s,transform .2s;position:relative;overflow:hidden}
+.sw-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .25s}
+.sw-card:hover{background:var(--blue-light);transform:translateX(4px)}
+.sw-card:hover::after{transform:scaleY(1)}
+.sw-card-icon{width:38px;height:38px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;margin-bottom:.8rem}
+.sw-card-icon svg{stroke:var(--blue)}
+.sw-card:hover .sw-card-icon{background:var(--blue)}
+.sw-card:hover .sw-card-icon svg{stroke:var(--gold)}
+.sw-card-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--blue);margin-bottom:.4rem}
+.sw-card-body{font-size:.79rem;line-height:1.6;color:var(--muted)}
+
+/* TEAM */
+#team{background:var(--white)}
+.team-head{max-width:600px;margin-bottom:3.5rem}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem}
+.team-card{background:var(--off-white);border-radius:4px;padding:2rem;overflow:hidden;position:relative;border:1px solid var(--line);transition:box-shadow .25s,transform .25s}
+.team-card:hover{box-shadow:0 12px 40px rgba(0,38,127,.1);transform:translateY(-4px)}
+.team-top{height:5px;margin:-2rem -2rem 1.5rem;background:linear-gradient(90deg,var(--blue),var(--gold))}
+.team-avatar{width:64px;height:64px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:1rem;border:3px solid var(--gold)}
+.team-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--blue);margin-bottom:.15rem}
+.team-cred{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark);font-weight:700;margin-bottom:.2rem}
+.team-role{font-size:.8rem;color:var(--muted);margin-bottom:.9rem}
+.team-divider{width:32px;height:2px;background:var(--gold);margin-bottom:.9rem}
+.team-bio{font-size:.82rem;line-height:1.7;color:var(--muted)}
+.associates-card{background:var(--blue);border-radius:4px;padding:2.5rem;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center}
+.assoc-icon{width:56px;height:56px;border-radius:50%;background:rgba(255,199,38,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.assoc-icon svg{stroke:var(--gold)}
+.assoc-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--gold);margin-bottom:.4rem}
+.assoc-body{font-size:.86rem;line-height:1.7;color:rgba(255,255,255,.65)}
+
+/* WHY US */
+#why{background:var(--blue)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.why-left .section-title{color:var(--white)}
+.why-left .section-body{color:rgba(255,255,255,.65);max-width:none}
+.why-items{display:flex;flex-direction:column;gap:1.2rem;margin-top:2.5rem}
+.why-item{display:flex;gap:1.2rem;align-items:flex-start;padding:1.5rem;background:rgba(255,255,255,.06);border-radius:4px;border-left:3px solid var(--gold);transition:background .2s}
+.why-item:hover{background:rgba(255,255,255,.1)}
+.why-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:rgba(255,199,38,.3);line-height:1;flex-shrink:0}
+.why-text-title{font-weight:600;color:var(--white);font-size:.92rem;margin-bottom:.3rem}
+.why-text-body{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6}
+.why-right{display:flex;flex-direction:column;gap:1rem}
+.why-stat-card{background:var(--gold);border-radius:4px;padding:1.8rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.why-stat-card.dark{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1)}
+.why-stat-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--blue-dark)}
+.why-stat-card.dark .why-stat-num{color:var(--gold)}
+.why-stat-label{font-size:.78rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.08em}
+.why-stat-card.dark .why-stat-label{color:rgba(255,255,255,.5)}
+.why-stat-icon{width:48px;height:48px;border-radius:50%;background:rgba(0,38,127,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.why-stat-icon svg{stroke:var(--blue-dark)}
+.why-stat-card.dark .why-stat-icon{background:rgba(255,199,38,.12)}
+.why-stat-card.dark .why-stat-icon svg{stroke:var(--gold)}
+
+/* BLOG */
+#blog{background:var(--off-white)}
+.blog-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+.blog-all{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:2px;transition:color .2s}
+.blog-all:hover{color:var(--gold-dark)}
+.blog-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:1.5rem}
+.blog-card{background:var(--white);border-radius:4px;overflow:hidden;border:1px solid var(--line);transition:box-shadow .25s,transform .25s}
+.blog-card:hover{box-shadow:0 12px 40px rgba(0,38,127,.1);transform:translateY(-4px)}
+.blog-img{height:180px;display:flex;align-items:center;justify-content:center;position:relative}
+.blog-card.feat .blog-img{height:220px}
+.blog-img-icon{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center}
+.blog-img-icon svg{stroke:rgba(255,255,255,.8)}
+.blog-body{padding:1.6rem}
+.blog-tag{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);font-weight:700;margin-bottom:.5rem}
+.blog-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--blue);line-height:1.3;margin-bottom:.6rem}
+.blog-card.feat .blog-title{font-size:1.3rem}
+.blog-excerpt{font-size:.81rem;line-height:1.65;color:var(--muted);margin-bottom:.8rem}
+.blog-meta{font-size:.72rem;color:rgba(86,96,128,.6)}
+.blog-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.76rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);text-decoration:none;margin-top:.8rem;transition:gap .2s}
+.blog-link:hover{gap:.8rem}
+
+/* CONTACT */
+#contact{background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:start}
+.contact-left .section-body{max-width:none}
+.contact-details{margin-top:2.5rem;display:flex;flex-direction:column;gap:1.2rem}
+.c-item{display:flex;gap:1rem;align-items:flex-start}
+.c-icon{width:44px;height:44px;flex-shrink:0;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center}
+.c-icon svg{stroke:var(--gold)}
+.c-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dark);font-weight:700}
+.c-val{font-size:.88rem;color:var(--muted);line-height:1.55;margin-top:.15rem}
+.contact-hours{background:var(--blue);border-radius:4px;padding:1.5rem;margin-top:2rem;display:flex;align-items:center;gap:1.2rem}
+.contact-hours .c-icon{background:rgba(255,199,38,.2);flex-shrink:0}
+.contact-hours .c-icon svg{stroke:var(--gold)}
+.hours-text .c-label{color:var(--gold)}
+.hours-text .c-val{color:rgba(255,255,255,.7)}
+.contact-form{background:var(--off-white);border-radius:4px;padding:2.5rem;border:1px solid var(--line)}
+.form-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:.4rem}
+.form-sub{font-size:.84rem;color:var(--muted);margin-bottom:2rem}
+.fg{margin-bottom:1.2rem}
+.fg label{display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.4rem}
+.fg input,.fg select,.fg textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--line);background:var(--white);font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--black);border-radius:2px;outline:none;transition:border-color .2s,background .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);background:var(--white)}
+.fg textarea{resize:vertical;min-height:110px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-btn{width:100%;padding:.9rem;background:var(--blue);color:var(--white);border:none;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .15s;margin-top:.5rem}
+.form-btn:hover{background:var(--blue-mid);transform:translateY(-1px)}
+
+/* FOOTER */
+footer{background:var(--black);padding:5rem 8vw 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
+.foot-logo-sub{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.foot-desc{font-size:.82rem;color:rgba(255,255,255,.35);line-height:1.75;max-width:260px}
+.foot-col h4{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:700;margin-bottom:1.2rem}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.foot-col a{font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.foot-col a:hover{color:var(--gold)}
+.footer-bot{padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-copy{font-size:.74rem;color:rgba(255,255,255,.22)}
+.foot-gold-line{width:40px;height:3px;background:var(--gold);border-radius:2px}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  #hero{grid-template-columns:1fr;padding:5rem 6vw 4rem}
+  .hero-right-col{display:none}
+  #about{grid-template-columns:1fr}
+  .services-head{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .payroll-grid{grid-template-columns:1fr 1fr}
+  .software-inner{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr}
+  #contact{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .nav-menu,.nav-cta{display:none}
+  .ham{display:flex}
+}
+@media(max-width:600px){
+  section{padding:4.5rem 5vw}
+  .svc-grid,.payroll-grid,.sw-services-grid,.team-grid{grid-template-columns:1fr}
+  .form-row,.footer-grid,.associates-card{grid-template-columns:1fr}
+  .hero-h1{font-size:2.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV — order matches page layout: About · Services · Payroll · Software · Team · Blog · Contact -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-main">DavisSon & Associates</span>
+    <span class="nav-logo-sub">Chartered Certified Accountants</span>
+  </a>
+  <div class="nav-menu">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#payroll">Payroll</a>
+    <a href="#software">Software</a>
+    <a href="#team">Team</a>
+    <a href="#why">Why Us</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+  <button class="ham" id="ham" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mob-nav">
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#payroll" onclick="closeMob()">Payroll</a>
+  <a href="#software" onclick="closeMob()">Software</a>
+  <a href="#team" onclick="closeMob()">Team</a>
+  <a href="#why" onclick="closeMob()">Why Us</a>
+  <a href="#blog" onclick="closeMob()">Blog</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-bg-glow2"></div>
+  <div class="hero-left-col">
+    <div class="hero-badge">Barbados · Financial Excellence</div>
+    <h1 class="hero-h1">Your finances.<br><em>Mastered.</em><br>Your business.<br>Forward.</h1>
+    <p class="hero-sub">Comprehensive financial services — from daily bookkeeping to high-level strategic advisory — tailored precisely for the modern Caribbean enterprise.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-gold">Explore Services</a>
+      <a href="#contact" class="btn-ghost">Book a Consultation</a>
+    </div>
+  </div>
+  <div class="hero-right-col">
+    <svg class="trident" viewBox="0 0 340 440" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="170" cy="220" r="160" fill="rgba(255,199,38,0.04)" stroke="rgba(255,199,38,0.1)" stroke-width="1"/>
+      <circle cx="170" cy="220" r="120" fill="rgba(255,199,38,0.04)" stroke="rgba(255,199,38,0.08)" stroke-width="1"/>
+      <rect x="162" y="130" width="16" height="200" rx="8" fill="rgba(255,199,38,0.9)"/>
+      <line x1="158" y1="326" x2="182" y2="334" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+      <line x1="158" y1="332" x2="182" y2="340" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+      <path d="M170 130 L110 60 L106 80 L125 90 L125 130" fill="rgba(255,199,38,0.85)"/>
+      <path d="M170 130 L170 40 L162 40 L162 130" fill="rgba(255,199,38,0.95)"/>
+      <path d="M170 130 L230 60 L234 80 L215 90 L215 130" fill="rgba(255,199,38,0.85)"/>
+      <polygon points="106,80 118,62 124,82" fill="#FFC726" opacity=".9"/>
+      <polygon points="162,40 170,22 178,40" fill="#FFC726"/>
+      <polygon points="216,80 222,62 234,80" fill="#FFC726" opacity=".9"/>
+      <ellipse cx="170" cy="155" rx="12" ry="6" fill="rgba(255,199,38,0.4)" stroke="rgba(255,199,38,0.6)" stroke-width="1.5"/>
+      <path d="M162 326 L155 338 L162 334 L158 345 L170 336 L182 345 L178 334 L185 338 L178 326 Z" fill="rgba(255,199,38,0.6)"/>
+      <circle cx="80" cy="180" r="3" fill="rgba(255,199,38,0.4)" opacity=".6"/>
+      <circle cx="260" cy="160" r="2" fill="rgba(255,199,38,0.4)" opacity=".5"/>
+      <circle cx="90" cy="290" r="4" fill="rgba(255,199,38,0.2)" opacity=".4"/>
+      <circle cx="255" cy="310" r="3" fill="rgba(255,199,38,0.3)" opacity=".5"/>
+      <text x="170" y="415" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(255,199,38,0.5)" letter-spacing="3">PRIDE · INDUSTRY · EXCELLENCE</text>
+    </svg>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-item">Bookkeeping & Accounting</span>
+    <span class="ticker-item">Financial Reporting</span>
+    <span class="ticker-item">Tax Services</span>
+    <span class="ticker-item">Payroll Management</span>
+    <span class="ticker-item">QuickBooks Online</span>
+    <span class="ticker-item">Technology & Accounting Systems</span>
+    <span class="ticker-item">Compliance Services</span>
+    <span class="ticker-item">Business Valuations</span>
+    <span class="ticker-item">Payroll Processing</span>
+    <span class="ticker-item">Software Setup & Training</span>
+    <span class="ticker-item">Financial Planning</span>
+    <span class="ticker-item">Business Advisory</span>
+    <span class="ticker-item">Bookkeeping & Accounting</span>
+    <span class="ticker-item">Financial Reporting</span>
+    <span class="ticker-item">Tax Services</span>
+    <span class="ticker-item">Payroll Management</span>
+    <span class="ticker-item">QuickBooks Online</span>
+    <span class="ticker-item">Technology & Accounting Systems</span>
+    <span class="ticker-item">Compliance Services</span>
+    <span class="ticker-item">Business Valuations</span>
+    <span class="ticker-item">Payroll Processing</span>
+    <span class="ticker-item">Software Setup & Training</span>
+    <span class="ticker-item">Financial Planning</span>
+    <span class="ticker-item">Business Advisory</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual">
+    <div class="about-stat-card reveal scale">
+      <div class="stat-grid">
+        <div><div class="stat-num">9+</div><div class="stat-label">Service Areas</div></div>
+        <div><div class="stat-num">FCCA</div><div class="stat-label">Leadership</div></div>
+        <div><div class="stat-num">360°</div><div class="stat-label">Financial Cover</div></div>
+        <div><div class="stat-num">BBD</div><div class="stat-label">Barbados Based</div></div>
+      </div>
+    </div>
+    <div class="about-quote reveal reveal-delay-2">
+      "Every business deserves a financial partner that understands where it's been — and can chart precisely where it's going."
+      <cite>— Umar Davis, FCCA · Managing Director</cite>
+    </div>
+  </div>
+  <div class="about-text">
+    <p class="eyebrow reveal">About the Firm</p>
+    <h2 class="section-title reveal reveal-delay-1">A forward-thinking firm <em>built for modern business.</em></h2>
+    <p class="section-body reveal reveal-delay-2">DavisSon & Associates Inc. is a comprehensive financial services firm headquartered in Barbados, combining rigorous technical expertise with a deep understanding of the regional business landscape. We serve clients across industries — delivering end-to-end financial solutions under one roof.</p>
+    <div class="about-pills reveal reveal-delay-3">
+      <span class="pill">FCCA Qualified Leadership</span>
+      <span class="pill">Technology-Forward</span>
+      <span class="pill">Regionally Experienced</span>
+      <span class="pill">Fully Tailored Solutions</span>
+      <span class="pill">End-to-End Coverage</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-head">
+    <div>
+      <p class="eyebrow reveal">What We Do</p>
+      <h2 class="section-title reveal reveal-delay-1">Comprehensive financial<br>services, <em>end to end.</em></h2>
+    </div>
+    <div class="services-intro">
+      <p class="section-body reveal">From your daily ledger to long-range strategic planning — every service you need, delivered by specialists who understand the Barbadian business environment.</p>
+      <a href="#contact" class="reveal reveal-delay-1">Talk to us about your needs
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="svc-grid">
+    <!-- 01 -->
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <div class="svc-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <h3 class="svc-title">Bookkeeping & Accounting</h3>
+      <p class="svc-body">Accurate, timely recording of every financial transaction — the bedrock of sound decision-making.</p>
+    </div>
+    <!-- 02 -->
+    <div class="svc-card reveal reveal-delay-1">
+      <div class="svc-num">02</div>
+      <div class="svc-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <h3 class="svc-title">Financial Reporting</h3>
+      <p class="svc-body">Clear, compliant financial statements and management reports that show the true state of your business.</p>
+    </div>
+    <!-- 03 -->
+    <div class="svc-card reveal reveal-delay-2">
+      <div class="svc-num">03</div>
+      <div class="svc-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h3 class="svc-title">Tax Services</h3>
+      <p class="svc-body">Strategic tax planning and full compliance services — minimising liability while keeping you current.</p>
+    </div>
+    <!-- 04 -->
+    <div class="svc-card reveal reveal-delay-1">
+      <div class="svc-num">04</div>
+      <div class="svc-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h3 class="svc-title">Technology & Accounting Systems</h3>
+      <p class="svc-body">We implement and support modern accounting software to automate workflows and sharpen financial visibility.</p>
+    </div>
+    <!-- 05 -->
+    <div class="svc-card reveal reveal-delay-2">
+      <div class="svc-num">05</div>
+      <div class="svc-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 class="svc-title">Compliance Services</h3>
+      <p class="svc-body">Regulatory compliance management across reporting, corporate filings, and statutory obligations.</p>
+    </div>
+    <!-- 06 -->
+    <div class="svc-card reveal reveal-delay-3">
+      <div class="svc-num">06</div>
+      <div class="svc-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <h3 class="svc-title">Business Valuations</h3>
+      <p class="svc-body">Rigorous, defensible valuations for M&A, succession planning, litigation support, and investor discussions.</p>
+    </div>
+    <!-- 07 -->
+    <div class="svc-card reveal reveal-delay-2">
+      <div class="svc-num">07</div>
+      <div class="svc-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3 class="svc-title">Financial Planning</h3>
+      <p class="svc-body">Forward-looking financial planning that aligns your numbers with your business goals — short and long horizon.</p>
+    </div>
+    <!-- 08 -->
+    <div class="svc-card reveal reveal-delay-3">
+      <div class="svc-num">08</div>
+      <div class="svc-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3 class="svc-title">Business Support Services</h3>
+      <p class="svc-body">Payroll, cash flow management, and back-office functions that keep day-to-day operations running smoothly.</p>
+    </div>
+    <!-- 09 -->
+    <div class="svc-card reveal reveal-delay-4">
+      <div class="svc-num">09</div>
+      <div class="svc-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <h3 class="svc-title">Business Advisory</h3>
+      <p class="svc-body">High-level strategic guidance on growth, financing, and transformation — grounded in real financial analysis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAYROLL -->
+<section id="payroll">
+  <div class="payroll-head">
+    <p class="eyebrow reveal">Payroll Services &amp; Solutions</p>
+    <h2 class="section-title reveal reveal-delay-1">Streamlined payroll.<br><em>Zero stress.</em></h2>
+    <p class="section-body reveal reveal-delay-2">We take the complexity out of payroll — managing every step from processing to tax compliance, so you can focus on running your business. Our payroll services are designed to keep your operations efficient, your employees paid accurately and on time, and your business fully compliant.</p>
+  </div>
+  <div class="payroll-grid">
+    <div class="payroll-card reveal">
+      <div class="payroll-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      </div>
+      <h3 class="payroll-card-title">Payroll Management</h3>
+      <p class="payroll-card-body">End-to-end management of your entire payroll operation — streamlined, accurate, and always on schedule.</p>
+    </div>
+    <div class="payroll-card reveal reveal-delay-1">
+      <div class="payroll-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      </div>
+      <h3 class="payroll-card-title">Payroll Processing</h3>
+      <p class="payroll-card-body">Timely and precise payroll runs for businesses of any size — every employee paid correctly, every period.</p>
+    </div>
+    <div class="payroll-card reveal reveal-delay-2">
+      <div class="payroll-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </div>
+      <h3 class="payroll-card-title">Tax Compliance</h3>
+      <p class="payroll-card-body">Full payroll tax compliance — calculating, withholding, and remitting all required taxes accurately and on time.</p>
+    </div>
+    <div class="payroll-card reveal reveal-delay-3">
+      <div class="payroll-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <h3 class="payroll-card-title">Employee Management</h3>
+      <p class="payroll-card-body">Accurate employee records, onboarding and offboarding payroll data, and personnel changes reflected correctly.</p>
+    </div>
+    <div class="payroll-card reveal reveal-delay-1">
+      <div class="payroll-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <h3 class="payroll-card-title">Tax Calculations</h3>
+      <p class="payroll-card-body">Precise computation of income tax, NIS contributions, and all statutory deductions — eliminating errors.</p>
+    </div>
+    <div class="payroll-card reveal reveal-delay-2">
+      <div class="payroll-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3 class="payroll-card-title">Time &amp; Attendance</h3>
+      <p class="payroll-card-body">Integration of time and attendance data into payroll — ensuring hours worked are captured and pay is accurate.</p>
+    </div>
+    <div class="payroll-card reveal reveal-delay-3">
+      <div class="payroll-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><polyline points="22 20 2 20"/></svg>
+      </div>
+      <h3 class="payroll-card-title">Reporting &amp; Analytics</h3>
+      <p class="payroll-card-body">Detailed payroll reports and analytics for complete visibility into labour costs, taxes, and workforce trends.</p>
+    </div>
+    <div class="payroll-card reveal reveal-delay-4" style="background:rgba(255,199,38,.07);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:.9rem;">
+      <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,199,38,.15);display:flex;align-items:center;justify-content:center;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFC726" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <p style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--white);line-height:1.4">Ready to simplify your payroll?</p>
+      <a href="#contact" class="btn-gold" style="font-size:.75rem;padding:.65rem 1.4rem">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOFTWARE -->
+<section id="software">
+  <div class="software-inner">
+    <div class="software-left">
+      <p class="eyebrow reveal">Accounting Software &amp; Systems</p>
+      <h2 class="section-title reveal reveal-delay-1">The right software.<br><em>Set up right.</em></h2>
+      <p class="section-body reveal reveal-delay-2">The right accounting software is a powerful asset — but only when it's configured correctly. We supply, install, and set up accounting platforms to accurately capture every financial transaction to the correct categories, so your data is always reliable and your reporting always meaningful.</p>
+      <p class="section-body reveal reveal-delay-3" style="margin-top:1rem">We provide discounted QuickBooks Online subscriptions, non-cloud accounting packages for businesses that prefer desktop solutions, and comprehensive training and ongoing support across all platforms.</p>
+      <div class="software-highlight reveal reveal-delay-4">
+        <div class="sh-item"><div class="sh-dot"></div><div class="sh-text"><strong>Discounted QuickBooks Online subscriptions</strong> — savings passed directly to our clients</div></div>
+        <div class="sh-item"><div class="sh-dot"></div><div class="sh-text"><strong>Non-cloud accounting packages</strong> — desktop solutions for local data control</div></div>
+        <div class="sh-item"><div class="sh-dot"></div><div class="sh-text"><strong>Comprehensive training &amp; support</strong> — from first login to advanced reporting</div></div>
+        <div class="sh-item"><div class="sh-dot"></div><div class="sh-text"><strong>Correct setup guaranteed</strong> — chart of accounts configured to your business</div></div>
+      </div>
+    </div>
+    <div class="software-right reveal from-right">
+      <div class="qb-badge">
+        <div class="qb-badge-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="qb-badge-text"><strong>Authorised QuickBooks Partner</strong>Discounted subscriptions available</div>
+      </div>
+      <div class="sw-services-grid">
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3 class="sw-card-title">QuickBooks Online Subscriptions</h3>
+          <p class="sw-card-body">Access QuickBooks Online at a discounted rate through us — the leading cloud-based platform for SMEs.</p>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="sw-card-title">QuickBooks Online Training</h3>
+          <p class="sw-card-body">Hands-on training — from transaction entry to bank reconciliation, reporting, and payroll integration.</p>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="sw-card-title">Non-Cloud Accounting Packages</h3>
+          <p class="sw-card-body">Desktop solutions for businesses that prefer local data. We supply, install, and configure for you.</p>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="sw-card-title">Software Setup &amp; Installation</h3>
+          <p class="sw-card-body">Professional installation and configuration — ready to use correctly from day one.</p>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </div>
+          <h3 class="sw-card-title">Chart-of-Accounts Setup</h3>
+          <p class="sw-card-body">A chart of accounts tailored to your business — every transaction captured in the right category from the start.</p>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="sw-card-title">Ongoing Support</h3>
+          <p class="sw-card-body">Continuous support — troubleshooting, updates, refresher training, and guidance whenever you need it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-head">
+    <p class="eyebrow reveal">The People Behind the Numbers</p>
+    <h2 class="section-title reveal reveal-delay-1">Meet our <em>expert team.</em></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-top"></div>
+      <div class="team-avatar">UD</div>
+      <h3 class="team-name">Umar Davis</h3>
+      <p class="team-cred">FCCA</p>
+      <p class="team-role">Managing Director</p>
+      <div class="team-divider"></div>
+      <p class="team-bio">A Fellow of the Association of Chartered Certified Accountants, Umar leads the firm with a commitment to technical excellence and client-centred service. His expertise spans financial reporting, strategic advisory, and business transformation across the Caribbean region.</p>
+    </div>
+    <div class="team-card reveal reveal-delay-2">
+      <div class="team-top"></div>
+      <div class="team-avatar">AA</div>
+      <h3 class="team-name">Alinthia Auguiste</h3>
+      <p class="team-cred">&nbsp;</p>
+      <p class="team-role">Office Administrator & Assistant Accountant</p>
+      <div class="team-divider"></div>
+      <p class="team-bio">Alinthia is the operational backbone of DavisSon & Associates. She manages day-to-day office functions while supporting accounting operations — ensuring clients receive responsive, organised, and attentive service at every touchpoint.</p>
+    </div>
+    <div class="team-card reveal reveal-delay-4">
+      <div class="team-top"></div>
+      <div class="team-avatar">AC</div>
+      <h3 class="team-name">Adio Catwell</h3>
+      <p class="team-cred">&nbsp;</p>
+      <p class="team-role">Corporate Services Director</p>
+      <div class="team-divider"></div>
+      <p class="team-bio">Adio leads the firm's corporate services division, overseeing compliance, corporate governance, and business support. His focus on regulatory precision and client relationships ensures businesses are well-structured and fully compliant.</p>
+    </div>
+  </div>
+  <div class="associates-card reveal">
+    <div class="assoc-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div>
+      <h4 class="assoc-title">Subcontract Associates & Bookkeepers</h4>
+      <p class="assoc-body">DavisSon & Associates works with a trusted network of specialist associates and experienced bookkeepers. This model allows us to scale with your needs — bringing in the right expertise at the right time, while maintaining the consistent quality and oversight our clients rely on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US (no nav item — internal section) -->
+<section id="why">
+  <div class="why-grid">
+    <div class="why-left">
+      <p class="eyebrow reveal" style="color:rgba(255,199,38,.8)"><span style="background:rgba(255,199,38,.15);padding:.15rem .4rem;border-radius:2px">Why Choose Us</span></p>
+      <h2 class="section-title reveal reveal-delay-1">Precision, strategy,<br><em>and real results.</em></h2>
+      <p class="section-body reveal reveal-delay-2">We don't offer cookie-cutter financial services. Every engagement is shaped around your business, your industry, and your goals.</p>
+      <div class="why-items">
+        <div class="why-item reveal reveal-delay-2"><div class="why-num">01</div><div><div class="why-text-title">End-to-end under one roof</div><div class="why-text-body">From bookkeeping to boardroom advisory — no need to juggle multiple providers.</div></div></div>
+        <div class="why-item reveal reveal-delay-3"><div class="why-num">02</div><div><div class="why-text-title">FCCA-qualified leadership</div><div class="why-text-body">Every engagement is overseen by a Fellow Chartered Certified Accountant.</div></div></div>
+        <div class="why-item reveal reveal-delay-4"><div class="why-num">03</div><div><div class="why-text-title">Technology-forward approach</div><div class="why-text-body">Modern accounting systems and digital tools for efficiency and real-time visibility.</div></div></div>
+        <div class="why-item reveal reveal-delay-5"><div class="why-num">04</div><div><div class="why-text-title">Deep regional expertise</div><div class="why-text-body">We know Barbadian regulations, the Caribbean business environment, and what it takes to thrive here.</div></div></div>
+      </div>
+    </div>
+    <div class="why-right reveal from-right">
+      <div class="why-stat-card">
+        <div><div class="why-stat-num">9+</div><div class="why-stat-label">Distinct Services</div></div>
+        <div class="why-stat-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+      </div>
+      <div class="why-stat-card dark">
+        <div><div class="why-stat-num">360°</div><div class="why-stat-label">Financial Coverage</div></div>
+        <div class="why-stat-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+        </div>
+      </div>
+      <div class="why-stat-card dark">
+        <div><div class="why-stat-num">FCCA</div><div class="why-stat-label">Qualified Leadership</div></div>
+        <div class="why-stat-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="blog-head">
+    <div>
+      <p class="eyebrow reveal">Insights &amp; Perspectives</p>
+      <h2 class="section-title reveal reveal-delay-1">Blog &amp; <em>Articles</em></h2>
+    </div>
+    <a href="blog.html" class="blog-all reveal">View All Articles →</a>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card feat reveal">
+      <div class="blog-img" style="background:linear-gradient(135deg,#001A5C,#00267F)">
+        <div class="blog-img-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+      </div>
+      <div class="blog-body">
+        <p class="blog-tag">Business Advisory</p>
+        <h3 class="blog-title">Why Caribbean SMEs Need a Financial Strategy — Not Just Accounting</h3>
+        <p class="blog-excerpt">Many small businesses treat accounting as a compliance obligation. Here's why forward-thinking enterprises are shifting to a strategic financial model — and what that looks like in practice.</p>
+        <p class="blog-meta">Umar Davis, FCCA · June 2025</p>
+        <a href="blog.html" class="blog-link">Read Article →</a>
+      </div>
+    </div>
+    <div class="blog-card reveal reveal-delay-2">
+      <div class="blog-img" style="background:linear-gradient(135deg,#00267F,#0033A8)">
+        <div class="blog-img-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+      </div>
+      <div class="blog-body">
+        <p class="blog-tag">Tax Services</p>
+        <h3 class="blog-title">Barbados Tax Filing: What Business Owners Need to Know in 2025</h3>
+        <p class="blog-excerpt">Key deadlines, common pitfalls, and strategies to stay fully compliant this fiscal year.</p>
+        <p class="blog-meta">DavisSon & Associates · May 2025</p>
+        <a href="blog.html" class="blog-link">Read Article →</a>
+      </div>
+    </div>
+    <div class="blog-card reveal reveal-delay-4">
+      <div class="blog-img" style="background:linear-gradient(135deg,#D4A200,#FFC726)">
+        <div class="blog-img-icon" style="background:rgba(0,38,127,.15)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(0,26,92,.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+      </div>
+      <div class="blog-body">
+        <p class="blog-tag">Technology</p>
+        <h3 class="blog-title">Choosing the Right Accounting Software for Your Business Stage</h3>
+        <p class="blog-excerpt">From QuickBooks to desktop packages — a practical guide to finding the right fit for your size, complexity, and growth plans.</p>
+        <p class="blog-meta">DavisSon & Associates · April 2025</p>
+        <a href="blog.html" class="blog-link">Read Article →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left">
+    <p class="eyebrow reveal">Get in Touch</p>
+    <h2 class="section-title reveal reveal-delay-1">Let's talk about <em>your business.</em></h2>
+    <p class="section-body reveal reveal-delay-2">Whether you need day-to-day accounting support or long-term strategic advisory — we'd love to hear from you. Reach out and let's explore how we can help you move forward.</p>
+    <div class="contact-details">
+      <div class="c-item reveal reveal-delay-2">
+        <div class="c-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="c-label">Address</div><div class="c-val">#2 Heddings Circle, Heddings<br>St. Philip, Barbados</div></div>
+      </div>
+      <div class="c-item reveal reveal-delay-3">
+        <div class="c-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.12h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l1.17-.85a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><div class="c-label">Phone</div><div class="c-val">(246) 851-3750</div></div>
+      </div>
+      <div class="c-item reveal reveal-delay-4">
+        <div class="c-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="c-label">Email</div><div class="c-val">office@davissonassociates.com</div></div>
+      </div>
+    </div>
+    <div class="contact-hours reveal reveal-delay-5">
+      <div class="c-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="hours-text">
+        <div class="c-label">Office Hours</div>
+        <div class="c-val">Monday – Friday: 9:00 AM – 5:00 PM</div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-form reveal from-right">
+    <h3 class="form-title">Send us a message</h3>
+    <p class="form-sub">We typically respond within one business day.</p>
+    <div class="form-row">
+      <div class="fg"><label>First Name</label><input type="text" placeholder="John"/></div>
+      <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith"/></div>
+    </div>
+    <div class="fg"><label>Email Address</label><input type="email" placeholder="john@yourbusiness.com"/></div>
+    <div class="fg"><label>Phone (optional)</label><input type="tel" placeholder="(246) 000-0000"/></div>
+    <div class="fg">
+      <label>Service of Interest</label>
+      <select>
+        <option value="">Select a service…</option>
+        <optgroup label="Core Services">
+          <option>Bookkeeping &amp; Accounting</option>
+          <option>Financial Reporting</option>
+          <option>Tax Services</option>
+          <option>Technology &amp; Accounting Systems</option>
+          <option>Compliance Services</option>
+          <option>Business Valuations</option>
+          <option>Financial Planning</option>
+          <option>Business Support Services</option>
+          <option>Business Advisory</option>
+        </optgroup>
+        <optgroup label="Payroll Services">
+          <option>Payroll Management</option>
+          <option>Payroll Processing</option>
+          <option>Payroll Tax Compliance</option>
+          <option>Employee Management</option>
+          <option>Time &amp; Attendance</option>
+          <option>Payroll Reporting &amp; Analytics</option>
+        </optgroup>
+        <optgroup label="Accounting Software">
+          <option>QuickBooks Online Subscription</option>
+          <option>QuickBooks Online Training</option>
+          <option>Non-Cloud Accounting Package</option>
+          <option>Software Setup &amp; Installation</option>
+          <option>Chart-of-Accounts Setup</option>
+          <option>Ongoing Software Support</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="fg"><label>Message</label><textarea placeholder="Tell us briefly about your business and what you're looking for…"></textarea></div>
+    <button class="form-btn" onclick="submitForm()">Send Message</button>
+  </div>
+</section>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="foot-logo">DavisSon & Associates Inc.</div>
+      <div class="foot-logo-sub">Chartered Certified Accountants · Barbados</div>
+      <p class="foot-desc">Comprehensive financial services from bookkeeping to strategic advisory — tailored to your business needs, delivered with precision.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Bookkeeping &amp; Accounting</a></li>
+        <li><a href="#services">Financial Reporting</a></li>
+        <li><a href="#services">Tax Services</a></li>
+        <li><a href="#services">Technology &amp; Systems</a></li>
+        <li><a href="#services">Compliance Services</a></li>
+        <li><a href="#services">Business Valuations</a></li>
+        <li><a href="#services">Financial Planning</a></li>
+        <li><a href="#services">Business Support Services</a></li>
+        <li><a href="#services">Business Advisory</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About the Firm</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#blog">Blog &amp; Articles</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:2468513750">(246) 851-3750</a></li>
+        <li><a href="mailto:office@davissonassociates.com">office@davissonassociates.com</a></li>
+        <li><a href="#contact">#2 Heddings Circle, St. Philip, Barbados</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <p class="foot-copy">© 2025 DavisSon & Associates Inc. All rights reserved.</p>
+    <div class="foot-gold-line"></div>
+     <p class="foot-copy">Mon–Fri: 9:00 AM – 5:00 PM</p>
+  </div>
+</footer>
+
+
+<script>
+window.addEventListener('scroll',()=>{
+  const s=scrollY>40;
+  document.getElementById('nav').classList.toggle('scrolled',s);
+  document.getElementById('back-top').classList.toggle('show',scrollY>400);
+},{passive:true});
+const ham=document.getElementById('ham');
+const mob=document.getElementById('mob-nav');
+ham.addEventListener('click',()=>mob.classList.toggle('open'));
+function closeMob(){mob.classList.remove('open')}
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+function submitForm(){
+  alert('Thank you for your message!\n\nWe\'ll be in touch within one business day.\n\nFor urgent matters:\n(246) 851-3750\noffice@davissonassociates.com');
+}
+</script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+</html>
