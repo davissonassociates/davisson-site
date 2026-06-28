@@ -1,0 +1,4 @@
+# Tell Eleventy to ignore these
+node_modules
+_site
+images
