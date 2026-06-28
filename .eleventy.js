@@ -17,6 +17,11 @@ module.exports = function(eleventyConfig) {
     return new Date(date).toISOString().split('T')[0];
   });
 
+  // Limit filter — returns first N items of an array
+  eleventyConfig.addFilter("limit", function(array, limit) {
+    return array.slice(0, limit);
+  });
+
   return {
     dir: {
       input: ".",
