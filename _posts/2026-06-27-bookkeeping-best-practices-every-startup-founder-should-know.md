@@ -3,6 +3,7 @@ title: Bookkeeping Best Practices Every Startup Founder Should Know
 date: 2026-06-27T19:26:00.000-04:00
 author: Umar Davis, FCCA
 category: Bookkeeping & Accounting
+tags: posts
 excerpt: >-
   Bookkeeping Best Practices Every Startup Founder Should Know
 
