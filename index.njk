@@ -100,7 +100,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black)
 
 /* HERO */
 #hero{
-  min-height:100vh;background:var(--blue);position:relative;overflow:hidden;
+  min-height:100vh;
+  background:linear-gradient(135deg, rgba(0,26,92,0.88) 0%, rgba(0,38,127,0.82) 100%),
+  url('/images/uploads/pawel-czerwinski-prMn9KINLtI-unsplash.jpg') center center/cover no-repeat;
+  position:relative;overflow:hidden;
   display:grid;grid-template-columns:1fr 1fr;align-items:center;
   padding:0 8vw;padding-top:72px;
 }
@@ -171,7 +174,16 @@ section{padding:7rem 8vw}
 .ico{display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
 /* ABOUT */
-#about{background:var(--off-white);display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+#about{
+  background:var(--off-white);
+  display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center;
+  position:relative;
+}
+#about::before{
+  content:'';position:absolute;inset:0;
+  background:url('/images/uploads/kathryn-maingot--76qup1BmIs-unsplash.jpg') center center/cover no-repeat;
+  opacity:0.04;pointer-events:none;
+}
 .about-stat-card{background:var(--blue);border-radius:4px;padding:2.8rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
 .about-stat-card::before{content:'';position:absolute;top:-80px;right:-80px;width:250px;height:250px;border-radius:50%;background:rgba(255,199,38,.07)}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
