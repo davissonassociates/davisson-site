@@ -26,7 +26,7 @@ body{font-family:"Inter",sans-serif;background:var(--white);color:var(--charcoal
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* NAV */
-#nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4vw;height:76px;background:transparent;transition:background .4s,box-shadow .4s}
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4vw;height:80px;background:transparent;transition:background .4s,box-shadow .4s}
 #nav.solid{background:rgba(255,255,255,0.98);box-shadow:0 1px 24px rgba(0,0,0,.06)}
 .logo{text-decoration:none}
 .logo-name{font-family:"Cormorant Garamond",serif;font-size:1.25rem;font-weight:600;color:var(--white);display:block;transition:color .3s}
@@ -43,16 +43,16 @@ body{font-family:"Inter",sans-serif;background:var(--white);color:var(--charcoal
 .ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .ham span{display:block;width:22px;height:1.5px;background:var(--white);transition:.3s}
 #nav.solid .ham span{background:var(--navy)}
-.mob-menu{display:none;position:fixed;top:76px;left:0;right:0;background:var(--white);z-index:99;flex-direction:column;border-bottom:2px solid var(--gold);box-shadow:0 8px 32px rgba(0,0,0,.1)}
+.mob-menu{display:none;position:fixed;top:80px;left:0;right:0;background:var(--white);z-index:99;flex-direction:column;border-bottom:2px solid var(--gold);box-shadow:0 8px 32px rgba(0,0,0,.1)}
 .mob-menu.open{display:flex}
 .mob-menu a{padding:1rem 4vw;font-size:.82rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--border)}
 
 /* HERO */
-#hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden}
+#hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:url("/images/uploads/pawel-czerwinski-prMn9KINLtI-unsplash.jpg") center/cover no-repeat}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,14,43,0.88) 0%,rgba(0,14,43,0.65) 55%,rgba(0,14,43,0.25) 100%)}
 .hero-overlay-b{position:absolute;bottom:0;left:0;right:0;height:45%;background:linear-gradient(to top,rgba(0,14,43,.65),transparent)}
-.hero-content{position:relative;z-index:2;padding:0 4vw 6rem;max-width:780px}
+.hero-content{position:relative;z-index:2;padding:80px 4vw 6rem;max-width:780px;width:100%;align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end}
 .hero-label{display:inline-flex;align-items:center;gap:.7rem;font-size:.64rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-light);margin-bottom:2rem}
 .hero-label::before{content:"";width:28px;height:1px;background:var(--gold)}
 .hero-h1{font-family:"Cormorant Garamond",serif;font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:300;line-height:1.08;color:var(--white);margin-bottom:1.8rem}
@@ -266,9 +266,36 @@ footer{background:#060810;padding:5rem 4vw 2.5rem}
 #top-btn svg{stroke:var(--white);transition:stroke .2s}
 
 /* RESPONSIVE */
+/* ── RESPONSIVE — full breakpoint system ── */
+
+/* Large laptops 1280px and below */
+@media(max-width:1280px){
+  .hero-h1{font-size:clamp(2.6rem,4.5vw,5rem)}
+  #services,#payroll,#software,#team,#why,#blog{padding:6rem 5vw}
+  .contact-left{padding:6rem 5vw}
+  .contact-right{padding:6rem 5vw}
+  .about-content{padding:5rem 5vw}
+  footer{padding:4rem 5vw 2rem}
+}
+
+/* Standard laptops 1100px and below */
+@media(max-width:1100px){
+  .hero-h1{font-size:clamp(2.4rem,4vw,4.2rem)}
+  .hero-sub{font-size:.9rem}
+  .nav-links{gap:1.8rem}
+  .nav-links a{font-size:.68rem}
+  #services,#payroll,#software,#team,#why,#blog{padding:5.5rem 5vw}
+  .contact-left{padding:5.5rem 5vw}
+  .contact-right{padding:5.5rem 5vw}
+  .sec-title{font-size:clamp(1.8rem,3vw,2.8rem)}
+  .svc-grid{grid-template-columns:1fr 1fr 1fr}
+}
+
+/* Tablets and small laptops 960px and below */
 @media(max-width:960px){
   #about,#contact{grid-template-columns:1fr}
-  .about-img{min-height:320px}
+  .about-img{min-height:360px}
+  .about-content{padding:4rem 5vw}
   .svc-head,.team-intro,.sw-inner,.payroll-inner,.why-inner{grid-template-columns:1fr;gap:2rem}
   .svc-grid{grid-template-columns:1fr 1fr}
   .team-cards{grid-template-columns:1fr 1fr}
@@ -276,12 +303,61 @@ footer{background:#060810;padding:5rem 4vw 2.5rem}
   .ft-grid{grid-template-columns:1fr 1fr}
   .nav-links,.nav-book{display:none}
   .ham{display:flex}
+  .contact-left{padding:4rem 5vw}
   .contact-right{padding:4rem 5vw}
+  #services,#payroll,#software,#team,#why,#blog{padding:5rem 5vw}
+  footer{padding:3.5rem 5vw 2rem}
+  .hero-content{padding:80px 5vw 5rem}
+  .hero-sub{max-width:100%}
 }
+
+/* Large phones and portrait tablets 768px and below */
+@media(max-width:768px){
+  .hero-h1{font-size:clamp(2.2rem,7vw,3.2rem)}
+  .hero-sub{font-size:.88rem}
+  .hero-ctas{flex-direction:column;align-items:flex-start;gap:.8rem}
+  .about-img{min-height:280px}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .pl-grid{grid-template-columns:1fr 1fr}
+  .sw-inner{gap:3rem}
+  .why-inner{gap:3rem}
+  #services,#payroll,#software,#team,#why,#blog{padding:4.5rem 5vw}
+  .contact-left,.contact-right{padding:3.5rem 5vw}
+  .sec-title{font-size:clamp(1.6rem,5vw,2.4rem)}
+  .blog-grid{grid-template-columns:1fr}
+  footer{padding:3rem 5vw 1.5rem}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .hero-scroll{display:none}
+}
+
+/* Mobile phones 600px and below */
 @media(max-width:600px){
   .svc-grid,.team-cards,.pl-grid,.form-row,.ft-grid{grid-template-columns:1fr}
-  .hero-h1{font-size:2.5rem}
+  .hero-h1{font-size:clamp(2rem,8vw,2.8rem)}
+  .hero-content{padding:80px 5vw 4rem}
+  .hero-label{font-size:.58rem;margin-bottom:1.2rem}
+  .hero-sub{font-size:.84rem;margin-bottom:1.8rem}
   .assoc-bar{flex-direction:column}
+  #services,#payroll,#software,#team,#why,#blog{padding:4rem 5vw}
+  .about-content{padding:3rem 5vw}
+  .contact-left,.contact-right{padding:3rem 5vw}
+  .sec-title{font-size:clamp(1.5rem,7vw,2rem)}
+  footer{padding:2.5rem 5vw 1.5rem}
+  .ft-grid{grid-template-columns:1fr}
+  .about-stats{grid-template-columns:1fr 1fr}
+  .why-cards{gap:1rem}
+  .svc-head-r{display:none}
+  .form-row{grid-template-columns:1fr}
+  .hero-scroll{display:none}
+  .mob-menu a{padding:.85rem 5vw;font-size:.78rem}
+}
+
+/* Very small phones 380px and below */
+@media(max-width:380px){
+  .hero-h1{font-size:1.9rem}
+  .hero-label{letter-spacing:.15em}
+  .about-stats{grid-template-columns:1fr 1fr}
+  .stat-v{font-size:2rem}
 }
 </style>
 </head>
