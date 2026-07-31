@@ -48,13 +48,14 @@ body{font-family:"Inter",sans-serif;background:var(--white);color:var(--charcoal
 .mob-menu a{padding:1rem 4vw;font-size:.82rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--border)}
 
 /* HERO */
-#hero{position:relative;height:100vh;min-height:640px;display:flex;flex-direction:column;overflow:hidden}
+#hero{position:relative;height:100vh;min-height:640px;display:grid;grid-template-rows:1fr auto;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:url("/images/uploads/pawel-czerwinski-prMn9KINLtI-unsplash.jpg") center/cover no-repeat}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,14,43,0.88) 0%,rgba(0,14,43,0.65) 55%,rgba(0,14,43,0.25) 100%)}
 .hero-overlay-b{position:absolute;bottom:0;left:0;right:0;height:45%;background:linear-gradient(to top,rgba(0,14,43,.65),transparent)}
-.hero-label{position:absolute;top:calc(80px + 2.5rem);left:4vw;z-index:3;display:inline-flex;align-items:center;gap:.7rem;font-size:.64rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-light)}
+.hero-top{position:relative;z-index:2;padding:calc(80px + 2.5rem) 4vw 0}
+.hero-label{display:inline-flex;align-items:center;gap:.7rem;font-size:.64rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-light)}
 .hero-label::before{content:"";width:28px;height:1px;background:var(--gold)}
-.hero-content{position:relative;z-index:2;padding:0 4vw 6rem;max-width:780px;margin-top:auto}
+.hero-content{position:relative;z-index:2;padding:0 4vw 6rem;max-width:780px}
 .hero-h1{font-family:"Cormorant Garamond",serif;font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:300;line-height:1.08;color:var(--white);margin-bottom:1.8rem}
 .hero-h1 strong{font-weight:600}
 .hero-h1 em{font-style:italic;color:var(--gold-light)}
@@ -309,6 +310,7 @@ footer{background:#060810;padding:5rem 4vw 2.5rem}
   footer{padding:3.5rem 5vw 2rem}
   .hero-content{padding:0 5vw 5rem}
   .hero-label{left:5vw}
+  .hero-top{padding:calc(80px + 2rem) 5vw 0}
   .hero-sub{max-width:100%}
 }
 
@@ -335,8 +337,9 @@ footer{background:#060810;padding:5rem 4vw 2.5rem}
 @media(max-width:600px){
   .svc-grid,.team-cards,.pl-grid,.form-row,.ft-grid{grid-template-columns:1fr}
   .hero-h1{font-size:clamp(2rem,8vw,2.8rem)}
+  .hero-top{padding:calc(80px + 1.5rem) 5vw 0}
   .hero-content{padding:0 5vw 4rem}
-  .hero-label{top:calc(80px + 1.5rem);left:5vw;font-size:.56rem}
+  .hero-label{font-size:.56rem}
   .hero-sub{font-size:.84rem;margin-bottom:1.8rem}
   .assoc-bar{flex-direction:column}
   #services,#payroll,#software,#team,#why,#blog{padding:4rem 5vw}
@@ -394,7 +397,9 @@ footer{background:#060810;padding:5rem 4vw 2.5rem}
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-overlay-b"></div>
-  <p class="hero-label">Barbados &middot; Established &middot; ACCA Qualified &middot;</p>
+  <div class="hero-top">
+    <p class="hero-label">Barbados &middot; Established &middot; ACCA Qualified &middot;</p>
+  </div>
   <div class="hero-content">
     <h1 class="hero-h1"><em>Clarity.</em> Strategy.<br><strong>Financial expertise</strong><br>your business deserves.</h1>
     <p class="hero-sub">We are a Barbados-based accounting firm delivering comprehensive financial services &mdash; from daily bookkeeping to high-level strategic advisory &mdash; tailored precisely to your business.</p>
