@@ -120,7 +120,18 @@ body{font-family:"Inter",sans-serif;background:var(--white);color:var(--charcoal
 .pl-label::before{content:"";width:20px;height:1px;background:var(--gold)}
 .pl-title{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:1.2rem}
 .pl-title em{font-style:italic;color:var(--gold-light)}
-.pl-body{font-size:.94rem;line-height:1.82;color:rgba(255,255,255,.58);margin-bottom:2.5rem}
+.pl-body{font-size:.94rem;line-height:1.82;color:rgba(255,255,255,.58);margin-bottom:2rem}
+.pl-app{border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.06);padding:1.5rem 1.6rem;margin-bottom:2.2rem}
+.pl-app-tag{font-size:.52rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.pl-app-name{font-family:"Cormorant Garamond",serif;font-size:1.25rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
+.pl-app-desc{font-size:.8rem;line-height:1.7;color:rgba(255,255,255,.52);margin-bottom:1rem}
+.pl-app-pts{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.1rem}
+.pl-app-pt{display:flex;align-items:flex-start;gap:.6rem;font-size:.76rem;line-height:1.5;color:rgba(255,255,255,.55)}
+.pl-app-pt::before{content:"";width:14px;height:1px;background:var(--gold);margin-top:.65em;flex-shrink:0}
+.pl-app-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.4);padding-bottom:2px;transition:color .2s,border-color .2s}
+.pl-app-link:hover{color:var(--gold-light);border-color:var(--gold-light)}
+.pl-app-link svg{transition:transform .2s}
+.pl-app-link:hover svg{transform:translateX(3px)}
 .pl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08)}
 .pi{background:rgba(255,255,255,.04);padding:1.5rem;transition:background .2s}
 .pi:hover{background:rgba(255,255,255,.09)}
@@ -470,7 +481,18 @@ footer{background:#060810;padding:5rem 4vw 2.5rem}
       <p class="pl-label reveal">Payroll Services &amp; Solutions</p>
       <h2 class="pl-title reveal d1">Streamlined payroll. <em>Zero stress.</em></h2>
       <p class="pl-body reveal d2">We take the complexity out of payroll &mdash; managing every step from processing to tax compliance so you can focus on running your business. Accurate, on time, every time.</p>
-      <a href="#contact" class="cta-p reveal d3" style="display:inline-block">Talk to Us About Payroll</a>
+      <div class="pl-app reveal d3">
+        <p class="pl-app-tag">Now Available</p>
+        <p class="pl-app-name">DS Payroll Plus +</p>
+        <p class="pl-app-desc">Payroll and more, simplified for Barbados. Manage employees, timesheets, and payroll runs in one place &mdash; with automatic statutory calculations built in.</p>
+        <div class="pl-app-pts">
+          <div class="pl-app-pt">Automatic NIS&shy;SS and PAYE calculations with up-to-date statutory rates</div>
+          <div class="pl-app-pt">Payslip generation, email delivery, and statutory reports in a few clicks</div>
+          <div class="pl-app-pt">Multi-company support with role-based access and isolated data</div>
+        </div>
+        <a href="https://dspayrollplus.online" target="_blank" rel="noopener" class="pl-app-link">Sign up &mdash; subscription available <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <a href="#contact" class="cta-p reveal d4" style="display:inline-block">Talk to Us About Payroll</a>
     </div>
     <div class="pl-grid reveal right">
       <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div><div class="pi-t">Payroll Management</div><div class="pi-d">End-to-end management of your entire payroll operation.</div></div>
