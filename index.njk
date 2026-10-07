@@ -121,17 +121,8 @@ body{font-family:"Inter",sans-serif;background:var(--white);color:var(--charcoal
 .pl-title{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:1.2rem}
 .pl-title em{font-style:italic;color:var(--gold-light)}
 .pl-body{font-size:.94rem;line-height:1.82;color:rgba(255,255,255,.58);margin-bottom:2rem}
-.pl-app{border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.06);padding:1.5rem 1.6rem;margin-bottom:2.2rem}
-.pl-app-tag{font-size:.52rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
-.pl-app-name{font-family:"Cormorant Garamond",serif;font-size:1.25rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
-.pl-app-desc{font-size:.8rem;line-height:1.7;color:rgba(255,255,255,.52);margin-bottom:1rem}
-.pl-app-pts{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.1rem}
-.pl-app-pt{display:flex;align-items:flex-start;gap:.6rem;font-size:.76rem;line-height:1.5;color:rgba(255,255,255,.55)}
-.pl-app-pt::before{content:"";width:14px;height:1px;background:var(--gold);margin-top:.65em;flex-shrink:0}
-.pl-app-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.4);padding-bottom:2px;transition:color .2s,border-color .2s}
-.pl-app-link:hover{color:var(--gold-light);border-color:var(--gold-light)}
-.pl-app-link svg{transition:transform .2s}
-.pl-app-link:hover svg{transform:translateX(3px)}
+.pl-logo{display:block;width:200px;margin-bottom:1.8rem;mix-blend-mode:screen;opacity:.95}
+.pl-url{font-size:.72rem;font-weight:500;color:rgba(201,168,76,.55);letter-spacing:.04em;margin-bottom:2rem;display:block}
 .pl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08)}
 .pi{background:rgba(255,255,255,.04);padding:1.5rem;transition:background .2s}
 .pi:hover{background:rgba(255,255,255,.09)}
@@ -478,29 +469,20 @@ footer{background:#060810;padding:5rem 4vw 2.5rem}
 <section id="payroll">
   <div class="payroll-inner">
     <div>
-      <p class="pl-label reveal">Payroll Services &amp; Solutions</p>
-      <h2 class="pl-title reveal d1">Streamlined payroll. <em>Zero stress.</em></h2>
-      <p class="pl-body reveal d2">We take the complexity out of payroll &mdash; managing every step from processing to tax compliance so you can focus on running your business. Accurate, on time, every time.</p>
-      <div class="pl-app reveal d3">
-        <p class="pl-app-tag">Now Available</p>
-        <p class="pl-app-name">DS Payroll Plus +</p>
-        <p class="pl-app-desc">Payroll and more, simplified for Barbados. Manage employees, timesheets, and payroll runs in one place &mdash; with automatic statutory calculations built in.</p>
-        <div class="pl-app-pts">
-          <div class="pl-app-pt">Automatic NIS&shy;SS and PAYE calculations with up-to-date statutory rates</div>
-          <div class="pl-app-pt">Payslip generation, email delivery, and statutory reports in a few clicks</div>
-          <div class="pl-app-pt">Multi-company support with role-based access and isolated data</div>
-        </div>
-        <a href="https://dspayrollplus.online" target="_blank" rel="noopener" class="pl-app-link">Sign up &mdash; subscription available <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-      <a href="#contact" class="cta-p reveal d4" style="display:inline-block">Talk to Us About Payroll</a>
+      <p class="pl-label reveal">Now Available</p>
+      <img src="/images/uploads/ds-payroll-plus-logo.png" alt="DS Payroll Plus +" class="pl-logo reveal d1">
+      <h2 class="pl-title reveal d2">Streamlined payroll. <em>Zero stress.</em></h2>
+      <p class="pl-body reveal d3">Payroll and more, simplified for Barbados. Manage employees, timesheets, and payroll runs in one place &mdash; with automatic statutory calculations, professional payslips, and fully secured company workspaces built in.</p>
+      <span class="pl-url reveal d3">dspayrollplus.online</span>
+      <a href="https://dspayrollplus.online" target="_blank" rel="noopener" class="cta-p reveal d4" style="display:inline-block">Sign Up Now</a>
     </div>
     <div class="pl-grid reveal right">
-      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div><div class="pi-t">Payroll Management</div><div class="pi-d">End-to-end management of your entire payroll operation.</div></div>
-      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><div class="pi-t">Payroll Processing</div><div class="pi-d">Timely and precise payroll runs for businesses of any size.</div></div>
-      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><div class="pi-t">Tax Compliance</div><div class="pi-d">All statutory deductions calculated and remitted accurately.</div></div>
-      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="pi-t">Employee Management</div><div class="pi-d">Accurate records for every employee through their full lifecycle.</div></div>
-      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="pi-t">Time &amp; Attendance</div><div class="pi-d">Hours captured accurately and reflected in every payroll run.</div></div>
-      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><polyline points="22 20 2 20"/></svg></div><div class="pi-t">Reporting &amp; Analytics</div><div class="pi-d">Full visibility into labour costs, taxes, and workforce trends.</div></div>
+      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="pi-t">Employee Management</div><div class="pi-d">Manage your full workforce, records, and lifecycle in one place.</div></div>
+      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="pi-t">Timesheets</div><div class="pi-d">Capture hours accurately and feed them straight into payroll runs.</div></div>
+      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><div class="pi-t">Payroll Runs</div><div class="pi-d">Process payroll quickly with every calculation handled for you.</div></div>
+      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><div class="pi-t">NISSS &amp; PAYE</div><div class="pi-d">Automatic statutory deductions using up-to-date Barbados rates.</div></div>
+      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div><div class="pi-t">Payslips &amp; Reports</div><div class="pi-d">Professional payslips generated, emailed, and statutory reports ready in clicks.</div></div>
+      <div class="pi"><div class="pi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="pi-t">Multi-Company &amp; Secure</div><div class="pi-d">Role-based access with each company workspace fully isolated.</div></div>
     </div>
   </div>
 </section>
