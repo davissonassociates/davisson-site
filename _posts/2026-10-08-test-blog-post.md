@@ -8,6 +8,4 @@ tags: posts
 ---
 This is my test blog post to see if the bugs have been fixed.
 
-
-
 If this work I should see.
