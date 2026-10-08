@@ -56,9 +56,7 @@ Every pay run creates a record you can look back on. Reports on labour costs, ov
 
 If two or more of these sound familiar, a dedicated payroll system will likely pay for itself quickly.
 
-## Meet DS Payroll Plus+: payroll built for Barbados
-
-![](/images/uploads/ds_payroll_plus_navy_under_1mb.png)
+## Meet "DS Payroll Plus+": payroll built for Barbados
 
 If you run a business in Barbados, generic payroll software often misses the local rules that matter most. [DS Payroll Plus+](https://dspayrollplus.online/about) is a cloud-based payroll platform from DavisSon & Associates Inc., designed around Barbadian statutory requirements from day one.
 
@@ -88,4 +86,4 @@ Small and medium-sized Barbadian businesses, payroll administrators and accounta
 
 ### Get started today
 
-Stop losing hours to spreadsheets and second-guessing deductions. Create your account at [dspayrollplus.online](https://dspayrollplus.online/), register your company, and start running payroll as soon as you're approved. Questions? Email [info@davissonassociates.com](mailto:info@davissonassociates.com) or visit [davissonassociates.](https://www.davissonassociates.com/)
+Stop losing hours to spreadsheets and second-guessing deductions. Create your account at [https://dspayrollplus.online](https://dspayrollplus.online/), register your company, and start running payroll as soon as you're approved. Questions? Email [alinthia@davissonassociates.com](mailto:info@davissonassociates.com) or visit [DavisSon & Associates Inc.](https://www.davissonassociates.com/)
