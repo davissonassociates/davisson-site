@@ -1,8 +1,8 @@
 ---
 layout: post.njk
 title: Bookkeeping Best Practices Every Startup Founder Should Know
-date: 2025-04-10
-author: DavisSon & Associates
+date: 2026-10-08T19:24:00.000-04:00
+author: DavisSon & Associates Inc
 category: Accounting Software
 excerpt: >-
   Bookkeeping Best Practices Every Startup Founder Should Know
