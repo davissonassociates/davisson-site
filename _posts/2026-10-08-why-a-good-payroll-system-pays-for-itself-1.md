@@ -1,9 +1,4 @@
 ---
-layout: post.njk
-title: Why a Good Payroll System Pays for Itself
-date: 2026-10-08T19:19:00.000-04:00
-author: DavisSon & Associates Inc.
-category: Payroll Services
 excerpt: >-
   Payroll is the one business process every employee notices. When it runs
   smoothly, nobody thinks about it. When it goes wrong, everyone does: a late
@@ -12,7 +7,13 @@ excerpt: >-
 
 
   That is why a good payroll system is not just back-office software. It is a tool that protects your cash, your compliance record and your reputation as an employer. Here is what the right system does for a business, and how to tell when it is time to upgrade.
+layout: post.njk
+title: Why a Good Payroll System Pays for Itself
+date: 2026-10-08T19:19:00.000-04:00
+author: DavisSon & Associates Inc.
+category: Payroll Services
 tags: posts
+image: /images/uploads/DS_Payroll_Plus_navy_under_1MB.png
 ---
 **Why a Good Payroll System Pays for Itself**
 
