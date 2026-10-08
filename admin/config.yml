@@ -32,4 +32,8 @@ collections:
       - { label: "Excerpt", name: "excerpt", widget: "text" }
       - { label: "Tags", name: "tags", widget: "hidden", default: "posts" }
       - { label: "Featured Image", name: "image", widget: "image", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        modes: ["raw", "rich_text"]
+        default_mode: "raw"
