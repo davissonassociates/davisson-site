@@ -1,11 +1,13 @@
 ---
-layout: post.njk
-title: "Why Caribbean SMEs Need a Financial Strategy — Not Just Accounting"
-date: 2025-06-01
-author: "Umar Davis, FCCA"
-category: "Business Advisory"
-excerpt: "Many small businesses treat accounting as a compliance obligation. Here's why forward-thinking enterprises are shifting to a strategic financial model — and what that looks like in practice."
+title: Why Caribbean SMEs Need a Financial Strategy — Not Just Accounting
+date: 2026-10-08T20:21:00.000-04:00
+author: Umar Davis, FCCA
+category: Business Advisory
+excerpt: Many small businesses treat accounting as a compliance obligation.
+  Here's why forward-thinking enterprises are shifting to a strategic financial
+  model — and what that looks like in practice.
 tags: posts
+layout: post.njk
 ---
 
 Many small businesses in Barbados and across the Caribbean treat accounting as something they do because they have to — a year-end obligation to satisfy the tax authorities. But the most successful businesses treat their finances as a strategic tool, not a compliance checkbox.
