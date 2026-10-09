@@ -1,6 +1,6 @@
 ---
 title: Why a Good Payroll System Pays for Itself
-date: 2026-10-08T19:25:00.000-04:00
+date: 2026-10-08T20:14:00.000-04:00
 author: DavisSon & Associates Inc.
 category: Payroll Services
 excerpt: >-
@@ -59,7 +59,7 @@ If two or more of these sound familiar, a dedicated payroll system will likely p
 
 ## Meet "DS Payroll Plus+": payroll built for Barbados
 
-![DS Payroll Plus + Logo](/images/uploads/ds_payroll_plus_cropped_rounded.png "DS Payroll Plus + Logo")
+![DS Payroll Plus + Logo](/images/uploads/ds-payroll-plus_weblogo.png "DS Payroll Plus + Logo")
 
 If you run a business in Barbados, generic payroll software often misses the local rules that matter most. [DS Payroll Plus+](https://dspayrollplus.online/about) is a cloud-based payroll platform from DavisSon & Associates Inc., designed around Barbadian statutory requirements from day one.
 
